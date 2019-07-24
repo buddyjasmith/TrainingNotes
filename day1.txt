@@ -1,0 +1,191 @@
+DBS: Database system
+DBMS: Database Management system
+        control mgmnt, retrieval of file system
+        Defines Data, format, boundary, transaction support,
+        Concurrency Control: many users can access Data
+        Recovery Mechanism: recovery data if damaged or loss, features to recovery
+        Security and Integrity: Information should reflect the same across all users, control access
+                                to Database
+        DBMS: Ability to export and import functions
+            *Benefits: sharing of data across applications
+        Data Independence: if changed, still works across applications
+        Enforce intergrity constraints: enforce correct data type constraints
+        Better transaction support: property transaction maintanence support
+        Enforce Standards:
+        Backup and recovery modes:
+
+
+*************Three Schema Architecture************************
+
+select * | columnnames, columnnames from tablename
+
+**How to filter records
+    select statement
+    where clause
+
+
+    -select first_name, last_name, salary
+     from employees
+     where salary > 10000
+
+     =, != (char)
+
+     multiple condition operator
+        -logical operator
+            *and or not
+                select first_name, last_name, salary
+                from employees
+                where salary > 10000 and salary < 15000
+
+                select first_name, last_name, salary
+                from employees
+                where not ( salary > 10000 and salary < 15000)
+
+                select first_name, last_name, salary
+                from employees
+                where (department_id=50 or department_id=80) and salary > 8000
+
+        **Special Operators
+            -between, in, is, like
+                
+
+                *between: range value
+                    select first_name, last_name, salary
+                    from employees
+                    where salary between 8000 and 11000
+
+                *in: list value
+                    select first_name, last_name, salary
+                    from employees
+                    where department_id in (20,10,80)
+                
+                *like: can be used for integer values as well as char
+                    %:any char more than one char
+                    _%:any second character should be
+
+                    select first_name, last_name, salary
+                    from employees
+                    where first_name like 'S%'
+                *is: display null or not null value
+                    select first_name, commission_pct 
+                    from employees
+                    where commission_pct is null;
+
+                    select first_name, commission_pct 
+                    from employees
+                    where commission_pct is not null;
+                *order by 
+                    -used to sort information, ascending or descending
+                    -asc by default
+                        select first_name, last_name, salary
+                        from employees
+                        order by salary desc;
+                    *multiple column
+                        select first_name,department_id, job_id, last_name, salary
+                        from employees
+                        order by department_id, job_id;
+                *group by
+                    display total salary for each department_id
+                        select column from tablename
+                        where clause
+                        group by 
+                        order by
+                        -columnname should be group
+                        -any column wihtout aggregate should be part of group by
+                        -display salary for each department_id
+                            select department_id, job_id,sum(salary)
+                            from employees
+                            where salary > 5000
+                            group by department_id, job_id
+                            order by department_id
+
+                *having clause
+                    -display salary greater than 50000
+                    -where clause does not support aggregate function
+                    -having clause is used to define the conditional statment aggregate function
+                    select department_id, job_id,sum(salary)
+                    from employees
+                    where salary > 5000
+                    having sum(salary) > 50000
+                    group by department_id, job_id
+                    order by department_id
+                            
+                *aggregate function avg,max, min,sum, count, count(*), distinct
+                    select sum(salary), max(Salary), min(Salary),avg(Salary) from employees;
+                    select distinct(department_id) from employees;
+                    * count(*): will count only record with the value
+                            select count(*) from employees;
+                    * count: counts values that are not null
+                            select count(commission_pct) from employees;
+
+                *single row functions
+                    *String functions(upper, length, lpad(),rpad(),)
+                        select upper(first_name) length(first_name), lpad(first_name,3),rpad(first_name,10,'*'),
+                    
+                        from employees
+                    *date functions
+                        -dual is system
+                        select sysdate from dual;
+                        select first_name, hire_date, date_add(hire_date,10,day) 
+                        from employees;
+                        select first_name, hire_date,next_day(hire_date,'Tuesday'),last_Day(hire_date)
+                        from employees;
+                        select first_name,hire_date,add_months(hire_date,10)
+                        from employees;
+                        select first_name,hire_date,add_months(hire_date,10),extract(year from hire_date)
+                        from employees;
+
+                        -format specific date
+                        -DW: specific week of year
+                        -W: week of MONTH
+                        -YYYY: full year
+
+                        select first_name,hire_date, to_date(hire_date,'DD MONTH YYYY')
+                        from employees;
+
+                        -round
+                        select round(10000.3456,2) from dual
+                    *numeric functions
+
+                **Joins**
+                    -used to join multiple tables
+                        *cross join: joining first and second
+                            select * from employees cross join departments
+                        *innter join: finding out the common column between two tables, also the value should match
+                            select first_name, department_name from employees join departments 
+                            on employees.department_id = departments.department_id 
+                            join locations on departments.location_id
+                             where departments.department_id = locations.location_id
+                            where salary > 8000
+                            order by department_name
+                            **WRong
+                        *outer join: Joining two tables will display contents of all joins on left, right, full
+                            -left, right, full(combination of left and right table)
+                            select first_name, department_name
+                            from employees 
+                            right join departments
+                            on employees.department_id = departments.department_id
+                        *self join: joining within the same table, on is better than where
+                            select e.first_name,m.first_name from employees e
+                            join employees m
+                            on e.manager_id = m.employee_id
+                **Sub-Queries
+                    query within query
+                    outer query and inner
+                        *select first_name, department_id, salary from employees
+                        where department_id in 
+                        (select department_id from departments
+                        where department_name ='IT' or department_name = 'Marketing')
+                        and salary > 7500
+                        order by first_name desc
+
+
+                    
+                        
+
+               
+
+            
+
+
+         
