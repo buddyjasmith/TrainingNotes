@@ -148,6 +148,20 @@ select * | columnnames, columnnames from tablename
                     *numeric functions
 
                 **Joins**
+
+                    inner join:
+                        query data from two or more tables(inner joined area in venn diagram)
+
+                        list customerid book id book title and qty of all books sold 
+                        select books.book_id, Books.book_title, book_sales.cust_id, book_sales.qty
+                        FROM Books INNER JOIN Book_Sales
+                        ON Books.Book_id = Book_Sales.book_id
+                        Where Book_Type='DB'
+
+                    **Cartesian Joining
+                        -Default join method if inner is not specified
+                        -each row is paired with all the rows in the second table
+                        -happens when relationship is not defined between two table or there is  no common column between them
                     -used to join multiple tables
                         *cross join: joining first and second
                             select * from employees cross join departments
@@ -178,7 +192,195 @@ select * | columnnames, columnnames from tablename
                         where department_name ='IT' or department_name = 'Marketing')
                         and salary > 7500
                         order by first_name desc
+                    outer
+                    select first_name 
+                    from employees
+                    where salary =(select max(salary) from employees)
+            *Any and all.  Any= minimum, All=maximum
 
+                /*****/Look up ANY vs ALL/*************/
+                
+                select first_name, salary
+                from employees
+                where salary > any(select salary from employees
+                where department_id = 60 or department_id = 80) 
+                >any means(it should be greather than any value in the list)
+        *Set operators
+            Union: display unique value from multiple columns
+            Union All: display duplicates
+            Intersect: display common values in both tables
+                select department_id from employees
+                Intersect
+                select department_id from departments
+            Minus: difference between two table value.. a minus b = a - (a and b)
+                select department_id from employees
+                Union All
+                select department_id from departments
+    DDL: Data Definition Language
+                Create, Alter, Drop, Trunacate
+                Synatx:
+                    create table tablename(
+                        columnname datatype null/notnull,
+                        columnname datatype null/notnull
+                    );
+                    by default it is null, you can ignore value of column
+                    number whole or decimal
+                    date-
+                    char- fixed size
+                    varchar2-will locate memory based on size
+                Example:
+                create table student(
+                    id number(5) not null,
+                    name varchar2(50) not null,
+                    gender  char(1) not null,
+                    city varchar2(50),
+                    dob date not null,
+                    fees number(10,2)          
+                )
+                create table course(
+                    id number(5) constraint c_pk_course_id primary key,
+                    name varchar2(50)
+                );
+    DML: Insert, delete and update
+        Insert:
+            insert into student values(1,'ravi','m','chn','12-jan-10',100000.50);
+            **if using null values, use column names
+            insert  into student(id, name, gender, dob) values(blah, blah, blah)
+            **insert directly (prompts user to enter values)
+            insert into student value(&id,'&name', '&gener', '&city', '&dob', &fees)
+        Update: 
+            Synatx:
+                update tablename
+                set column = value
+                where condition
+
+                update student
+                set city = 'kn', fees = 25000.00
+                where name = 'mahesh'
+
+
+                UPDATE Book_Customer c set cust_category = 'H'
+                WHERE EXISTS(
+                    SELECT 1 FROM Book_Sales s, Books b
+                    WHERE s.book_id = b.book_id
+                    AND s.cust_id = c.cust_id
+                    GROUP BY cust_id
+                    HAVING SUM(qty * book_cost) > 10000
+                )
+        delete:
+                delete from tablename
+               
+                where
+                ///or to delete entire record
+                delete tablename;
+        alter:
+                syntax:
+                    //modify column name
+                    alter table tablename
+                    modify city varchar2(100)
+
+                    //add new column
+                    alter table tablename
+                    add newColumnName datatype
+
+                    //remove column
+                    alter table tablename
+                    drop column columnname
+
+                    //rename column
+                    alter table tablename
+                    rename column dob to date_of_birth
+
+                    //rename table
+                    alter table tablename 
+                    rename to newTableName
+
+                    //add constraint existing tablea
+                    alter table emp1
+                    add constraint c_pk_emp1 primary key(id)
+    constraints:
+    select constrain_name, constraint
+        Primary key:
+            does not take duplicat value or null.
+        Foreign key:
+            refers to primary key table, becomes the child table, primary becomes 
+            parent table 
+
+                    create table trainee
+                    (
+                    id number(5) constraint c_pk_trainee_id primary key,
+                    name varchar2(50),
+                    id number(5) constraint c_fk_course_id references course(id)
+                    )
+        Check:
+            create table emp(
+                id number(5) not null,
+                name varchar2(50),
+                salary number(10,2) check (salary > 0)
+            ) 
+
+            insert into emp values(1,'a',1000)
+        Default:
+            if you do not put any value to the column, it will put default value
+
+                create table emp1(
+                    id number(10),
+                    name varchar2(50),
+                    city varchar2(50) default 'New York'
+                )
+        Unique:
+            Does not take any duplicate value. Can  have null value.
+                create table course1(
+                    id number(5) constraint c_uq_course1_id unique,
+                    name varchar2(50)
+
+                )
+    Views:
+        a mirror of a table, view does not exist physically
+        view can be created by a query joining one or more tables
+        view does not store data
+        good for presenting data to userGood for fetching info instead of directly accessing from table
+        view will become read only (cannot perform insert, delete, but can update in a few seconds)
+            create or replace view view1
+            as
+            select first_name, department_name from employees
+            join departments on employees.employee_id = departments.department_id
+            
+    Indexes:
+            select * from all_indexes;
+             indexes are used to increase performance of tables
+            primary key creation creates index automatically
+            can be used to increase performance and fetch effeciently
+            non key 
+
+            create index index1 on emp1(name);
+            
+    Sequences:
+            nextval is used to capture the next value
+            sequence is used to generate the number automatically
+                create sequence s1
+                start with 100
+                increment by 1
+                maxvalue 1000;
+    Pl/SQL:
+
+    Transaction mgmt:  Ensuring atomicity/cardinality.
+        A transaction is single unit of work composed of one, two or more tasks - Logic Unit of work.
+        Update Journal Entry
+
+        State diagram transaction begin->ACTIVE->PARTIALLY COMPLETED->COMMITED->FAILED->ABORTED
+
+
+        Transaction processing system:  
+            Batch Processing: automated processes, end of quarter/month etc.
+            Real Time: ATM, Billing, etc
+            On-line: 
+
+        Atomicity: no half transactions. if complete, commited.  if failed, rollback.
+        Consistency: ensure db is in consistent state. uniqueness, referential integrity
+        Isolation: enable concurrent execution of transaction while ensuring that obtained by sequential execution.  Multiple executions should not 
+                   impact others execution.  Need for concurrency, multiple access ability for given time.
+        Durability:after successful transaction, all updates are permanent irrespective of system failure.
 
                     
                         
