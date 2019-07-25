@@ -383,11 +383,126 @@ select * | columnnames, columnnames from tablename
         Durability:after successful transaction, all updates are permanent irrespective of system failure.
 
                     
-                        
+    //***************************************************//
+    /****************Day Three*****************************/
+    /******************************************************/          
 
-               
+    Procedural Language Structured Query Language
+        *Procedural Language: Combination of SQL along with procedural programming
+        *Portable high performance provides a built in and also independent programming environment
+        *Any pl/sql statement will be stored in the database
+        *Allows functions, data types, DML
+        *Reduces network traffic
+        *Handle Exceptions
+        *Packages
 
+        -***Variable Declaration
+            @Begin
+                declare
+                execute commands
+                exception handling
+                    statement
+            declare
+                Declaration
+            Begin
+                commands
+            Exceptions
+                statement
+            End;
+
+            Declare
+	        -- this is a comment line
+	            name varchar2(50) := '&name';
+            Begin
+	            dbms_output.put_line('my name is ' || name);
+            end;
             
 
+            Declare
+            	num1 int := &num1;
+	            num2 int := &num2;
+	            result int := 0;
+            Begin
+                result := num1 + num2;
+                dbms_output.put_line('sum: '|| result);
+            end;
 
-         
+
+            declare
+                pi constant number := 3.142;
+                radius number := &radius;
+                area number(10,2);
+            begin
+                area := radius * radius * pi;
+                dbms_output.put_line(area);
+            end;
+            /
+    ***************************************************************************
+    ******************Branch Statements/Loops****************************************
+    declare
+        num1 number(10) := &num1;
+    begin
+        if(num1 > 20) then
+        dbms_output.put_line('greater');
+        else
+        dbms_output.put_line('less');
+        end if;
+    end;
+
+    declare
+  grade char := '&grade';
+    begin
+        case grade
+        when 'A' then
+            dbms_output.put_line('excellent');
+        when 'B' then
+            dbms_output.put_line('very good');
+        else
+            dbms_output.put_line('failed');
+        end case;
+    end;
+    /
+
+    declare
+    a number := 10;
+    Begin
+    while a >= 1
+        loop
+        dbms_output.put_line(a);
+        a := a - 1;
+    end loop;
+    end;
+
+
+    declare
+        x number := 1;
+    begin
+        loop 
+            dbms_output.put_line(x);
+            x := x + 1;
+            if x < 3 then
+                continue;
+            end if;
+            dbms_output.put_line(x || 'after continue');
+            exit when x = 5;
+        end loop;
+    end;
+    /
+/////////////////////*****************************************//////////
+******************Names******************************
+declare
+    type namearray is varray(5) of varchar2(50);
+    names namearray;
+begin
+    names := namearray('ram','ravi','satish','subhash','mahesh');
+    dbms_output.put_line(names.count);
+    for i in 1..names.count
+    loop
+        dbms_output.put_line(names(i));
+    end loop;
+end;
+/
+                            
+
+
+                        
