@@ -1,10 +1,10 @@
 DECLARE
-    fname           employees.first_name%TYPE;
+    fname           employees.name%TYPE;
     sal             employees.salary%TYPE;
     eid             employees.employee_id%TYPE := &eid;
     invalid_eid     EXCEPTION;  --USER DEFINED EXCEPTION
 BEGIN
-    IF  eid < 0   THEN
+    IF  eid <= 0   THEN
         RAISE invalid_eid;
     ELSE
         SELECT first_name, salary 
