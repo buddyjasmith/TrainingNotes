@@ -8,24 +8,16 @@ public class Main {
 		int decimal = keyboard.nextInt();
 		int remainder = 0;
 		String binary = "";
-		while(decimal != 0) {
+		while(decimal > 0) {
 			System.out.println("Oops");
 			remainder = decimal % 2;
 			binary = Integer.toString(remainder) + binary;
 			decimal /= 2;
 		}
 		System.out.println(binary);
-		if(decimal < 0) binary = oneComplement(binary);
-		System.out.println(binary);
-	}
-	public static String oneComplement(String num){
-		String returnValue="";	
-		for(int i = 0; i < num.length();i++){
-			char temp = num.charAt(i);
-			returnValue  += (temp == '1' ? '0':'1');
-		}
 		
-		return returnValue;
+		
 	}
+	
 
 }
