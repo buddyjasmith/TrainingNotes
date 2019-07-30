@@ -1,0 +1,49 @@
+
+Major Elements Abstraction: denotes char of object Encapsulation:
+compartmentalizing/hiding of data within object.
+               serves tp separate
+Modularity: divsion in to smaller modules
+            cohesive and loosely coupled modules
+Hierarchy: Single inheritance,
+           Multiple inheritance, Composition, Aggregation
+
+Minor Persistence: transcends time of existence.
+             objects location moves from one location to next
+Typing: enforcement of the class of an object, may or may not be interchanged
+        early and late binding Polymorphism:
+
+Concurrency
+
+
+Abstraction: distinguishes an object from other objects
+            denotes the essential characteristics of an object that
+            distinguishes it from other objects.
+
+            defines crisply defined boundaries, in relation to the user Suppress
+            details that do not matter to the user.
+
+            Abstraction of functions based on which user is using the object
+
+Encapsulation:
+    mechanism to restrict access to some objects Compartmentalizing objects of
+    Abstraction Data binding.
+
+Aggregation:
+    Whole part relationship Object A belongs to object B - (Whole Diamond)
+       * Object A is often called as constituted object, part, constituent, and
+         a member object * Object B is the composite type Combines simple
+         objects into more complex ones
+
+    **HAS a relationship -Department has a Professor, prof can be independent if
+    department is destroyed -Department may have 0 or more -Professor may have 0
+    or more departments
+inheritance
+    B is an extension of Abstraction B is a subtype of A A is a Supertype of
+    based B is considered an object of A Code Reusabillity
+        Single inheritance: subclass inherits from one super class 
+        Multiple inheritance: Allows a class to have more than one superclass 
+        and inherit features from all parent classes Multilevel inheritance
+        Hierarchicalinheritance:
+        Hybrid inheritance:
+        Multilevel inheritance: subclass inherited by another class
+                                any number of levels
