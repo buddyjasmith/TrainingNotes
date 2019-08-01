@@ -17,9 +17,7 @@ public class Main {
 			 str = br.readLine();
 		
 			while((str = br.readLine()) != null) {
-				
 				System.out.println(str);
-			
 			}
 			}catch(FileNotFoundException f) {
 				f.printStackTrace();

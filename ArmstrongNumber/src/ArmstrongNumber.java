@@ -16,7 +16,6 @@ public class ArmstrongNumber {
 		int check=0;
 		while(n >0) {
 			check += Math.pow((n%10), possibleArm.length());
-			
 			n /= 10;
 		}
 		if(check == original) System.out.println("ARMSTRONG");
