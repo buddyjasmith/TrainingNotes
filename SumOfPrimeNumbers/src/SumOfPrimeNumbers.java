@@ -12,6 +12,7 @@ public class SumOfPrimeNumbers {
 			System.out.println("INVALID_INPUTS");
 			return;
 		}
+		System.out.println("BLASH");
 		flag =  checkLimits(array[0]);
 		if(!flag) {
 			System.out.println("INVALID_INPUTS");
