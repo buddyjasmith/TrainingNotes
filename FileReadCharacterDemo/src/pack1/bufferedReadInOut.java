@@ -1,3 +1,4 @@
+package pack1;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
@@ -12,14 +13,17 @@ public class bufferedReadInOut {
 		
 		try (FileInputStream input = new FileInputStream("/home/drew/Repos/TrainingNotes/One.txt");
 			BufferedInputStream bis = new BufferedInputStream(input);
-			FileOutputStream output = new FileOutputStream("/home/drew/Repos/TrainingNotes/One1.txt");
+			//true appends file
+			FileOutputStream output = new FileOutputStream("/home/drew/Repos/TrainingNotes/One1.txt",true);
 			BufferedOutputStream bos = new BufferedOutputStream(output);){
 
 		
 			 int c;
 		
 			while((c=bis.read())!= -1) {
-				System.out.println();
+				System.out.print((char)c);
+				bos.write((char)c);
+				
 			}
 			}catch(FileNotFoundException f) {
 				f.printStackTrace();

@@ -5,7 +5,7 @@ import java.io.InputStream;
 
 public class Main1 {
 	public static void main(String[] args) {
-		try(InputStream is = new FileInputStream("/home/drew/Repos/TrainingNotes/One.txt"));
+		try(InputStream is = new FileInputStream("/home/drew/Repos/TrainingNotes/One.txt");
 				BufferedInputStream bis = new BufferedInputStream(is);)
 		{
 			byte[] buffer = new byte[is.available()];
