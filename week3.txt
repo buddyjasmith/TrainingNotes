@@ -1,0 +1,54 @@
+platform independent
+converts code to byte code
+    byte code can be localized to any platform
+    JVM is platform dependent
+
+Fundamentals
+    ASCII is substitution of Unicodes
+    token: 
+    Identifiers: names of variables, objects
+    Keywords:
+
+    Concepts of data types:
+    Programming is stored concepts:
+    Primitive Data Types:
+        -char 2
+        -byte 1
+        -int: 4 bytes
+        -short 2
+        -double 8
+        -float 5 follow value with F, ex: 15.1F;
+        -long
+        -boolean 1 
+    
+Find largest of three numbers
+
+Find average of three subject marks
+    distinction <= 100 &&  >= 75
+    first class <75 and > 60
+    pass class < 60
+Explicit:  (type)
+
+Implicit: without explicitly casting typ 
+
+
+Control Statements: Conditional/Logical || && !
+Bitwise Operators: | & << >> ^
+
+Reversal
+int reverse = 0, remainder 0;
+while(n > 0){
+    remainder = n % 10;
+    reverse = reverse * 10 + remainder;
+    n = n /10;
+}
+Assignment: Convert number to binary
+            Armstrong number: get length of number
+                              cube each digit
+                              add together
+                              
+
+                              Example:
+                              1234
+                              1^4 + 2^4 + 3^4 + 4^4, if equal to original number, armstrong number
+                              
