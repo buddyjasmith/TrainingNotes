@@ -1,1 +1,25 @@
-JDBC:
+Collections:
+    - Arrays:
+    - LinkedList:
+                 Methods: size(), isEmpty(), .contains(), iter.next(), iter.previous(int lastElement(size)) 
+    - Arraylist: Collection of objects.  Arraylsit in collections
+                 is substitute for array.  will resize at size + %50.
+                 can add and remove by index.
+                 Sublist: 
+                          [java]
+                          Arraylist<String> sublist = new Arraylist<String>
+                          sublist.add("one");
+                          sublist.add("two")
+                          alist.removeAll(sublist);
+                          //to search
+                          alist.contains("MMM");
+                          alist.containsAll(sublist);
+                          [end]
+                Assignment:
+                    - Use methods of arraylist
+    - Stack: LIFO
+    - Queue: FIFO
+    - Trees: Sorted collections
+    - WrapperClasses: Boxing and unboxing
+List:
+    -

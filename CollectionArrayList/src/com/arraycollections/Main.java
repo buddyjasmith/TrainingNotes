@@ -22,6 +22,22 @@ public class Main {
 		alist.add(0,"ABAB");
 		alist.add(2,"MNMN");
 		System.out.println(alist);
+		//remove
+		alist.remove(1);
 		
+		//Using Book class
+		ArrayList<Book> blist = new ArrayList<Book>();
+		blist.add(new Book(10,500));
+		blist.add(new Book(20,30));
+		for(Book b : blist) {
+			System.out.println(b);
+		}
+		Iterator<Book> it = blist.iterator();
+		while(it.hasNext()) {
+			System.out.println(it.next());
+		}
+		for(int i =0; i < blist.size();i++) {
+			System.out.println(blist.get(i));
+		}
 	}
 }
