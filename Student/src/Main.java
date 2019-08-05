@@ -8,6 +8,10 @@ public class Main {
 			ObjectOutputStream objs = new ObjectOutputStream(fs);	){
 			Student[] sarr = new Student[4];
 			for(Student s: sarr) {
+				//while(fs.available() > 0)
+				//Deserialization STudent s = (Student)objs.readObject()
+				//Use objectinputstream
+				//s.setTotal();
 				objs.writeObject(s);
 				System.out.println(s);
 			}

@@ -1,0 +1,51 @@
+*Exceptions*
+    -Checked Exceptions: Class under the exception except for runtime classes
+    -Unchecked: All the classes under run time are unchecked
+
+Checked exception example: IOException(resources like file, devic, network) manage with care
+    Handle all errors that can occur.
+    
+Compile time exceptions: Checked Exceptions
+Compiler is unaware of logic written
+Classes under run time is unchecked by compiler, they are unchecked exceptions.
+Runtime exceptions must be minimized by programmer
+
+Error is unchecked and programmer need not handle these exceptions
+ 
+5 exception keyword
+    -Try
+    -Catch
+    -throw
+    -throws
+    -finally
+
+checked exceptions
+Auto close, try with resource, eliminate finally block
+Finally always executes 
+
+UncheckedExceptions
+Take inputs from the keyboard using io streams
+
+Multiple catch statement rules
+-all subclasses must come first, followed by the parent classes
+
+Input stream object and methods help to read data from a file
+Output Stream objects write methods to a file for permanent persistance
+
+
+Java supports these two type
+byte stream and character stream
+input stream and output stream
+
+
+Byte streams
+File operations using Byte streams
+    -single byte
+    -byte array
+    -object reading and writing
+Implements serializable 
+    -marker interface
+    -has no interface but passes data to the JVM to serialize the object
+Collections:
+    -elements of a Collections
+    -

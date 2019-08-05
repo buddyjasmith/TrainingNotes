@@ -8,6 +8,7 @@ public class Customer {
 	
 	public Customer() {
 		super();
+		customerId = 0;
 	}
 	public Customer(int customerId, String name, String city, String phone, String email) {
 		super();
@@ -51,21 +52,51 @@ public class Customer {
 
 	@Override
 	public boolean equals(Object obj) {
-		if(this == obj)	
+		if(this == obj) {	
 			return true;
-		if(obj == null)	
+		}
+		if(obj == null)	{
 			return false;
-		if(this.getClass() != obj.getClass()) 
+		}
+		if(this.getClass() != obj.getClass()) {
 			return false;
+		}
 		Customer customer = (Customer)obj;
+		boolean[] flag = new boolean[6];
+		try {
+			 flag[0] = this.getCity().contentEquals( customer.getCity());
+			 
+			 
+		}catch(NullPointerException n) {
+			flag[0]=(this.getCity() == null) && (customer.getCity() == null)?
+				    true : false;
+		}
+		//check int comparison
+		flag[1] = (this.getCustomerId() == customer.getCustomerId());
+		try {
+			flag[2] = this.getName().equals(customer.getName());
+		}catch(NullPointerException n) {
+			flag[2] = (this.getName() == null && customer.getName()== null) ?
+					  true : false;	
+		}try {
+			flag[3]= this.getCity().equals(customer.getCity());
+		}catch(NullPointerException n){
+			flag[3] = (this.getCity() == null && customer.getCity() == null)?
+					  true : false;
+		}try {
+			flag[4] = this.getPhone().equals(customer.getPhone());
+		}catch(NullPointerException n) {
+			flag[4] = (this.getPhone() == null && customer.getPhone() == null)?
+					  true : false;
+		}try {
+			flag[5] = this.getEmail().equals(customer.getEmail());
+		}catch(NullPointerException n) {
+			flag[5] = (this.getEmail() == null && customer.getEmail() == null)?
+					  true : false;
+		}
+	
+		return (flag[0] && flag[1] && flag[2] && flag[3] && flag[4] && flag[5]);
 		
-		boolean flag0 = this.getCity().contentEquals( customer.getCity());
-		boolean flag1 = this.getCustomerId() == customer.getCustomerId()	;
-		boolean flag2 = this.getName().equals(customer.getName());
-		boolean flag3 = this.getCity().equals(customer.getCity());
-		boolean flag4 = this.getPhone().equals(customer.getPhone());
-		boolean flag5 = this.getEmail().equals(customer.getEmail());
-		return (flag0 && flag1 && flag2 && flag3 && flag4 && flag5);
-	}
+		}
 }
 
