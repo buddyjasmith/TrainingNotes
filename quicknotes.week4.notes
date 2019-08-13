@@ -19,7 +19,14 @@ Collections:
                     - Use methods of arraylist
     - Stack: LIFO
     - Queue: FIFO
+             Queue<String> queue = new LinkedList<String>();
+             poll(): removes top lastElement and returns it
+             peek(): peeks first lastElement
+             remove(): remove first element without returning it
+             element(): removes element, can cause exception if empty
     - Trees: Sorted collections
     - WrapperClasses: Boxing and unboxing
 List:
     -
+Assignment:
+    -create treemap and linkedhashmap and add elements and iterate ityes
