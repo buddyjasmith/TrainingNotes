@@ -1,0 +1,20 @@
+*What is Typescript*
+    - a superscript of javascript
+    - strongly typed
+*Compilation*
+    - javascript is an interpreted language.  The transpiler provides error-checking
+      feature.  Typescript will compile the code and generate compilation errors.
+      if it finds some sort of syntax error.  Highlight errors before the script is run
+
+*Strong Static Typing*
+    - Javscript is not strongly typed. TS comes with optional static typing and 
+      type inference system through tls(TS language Service)
+    - Language: compromises the syntax keywords and type annotations
+    - Typescript Compiler: converts the instructions into js equivalent
+    - TLS: support the common set of a typical editor operation like statement completion
+        code formatting and outlingin, colorization
+    - any: super type of all types in TS.  It denotes a dynamic type.  Using the any type is 
+          equivalent to opting out of type checking for a variable
+    - Built In type: string, boolean, int, arrays
+
+*Example:*

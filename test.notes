@@ -1,0 +1,126 @@
+
+
+Quiz
+You have completed your quiz attempt. You have scored 6.00 point(s).
+Question Results
+Score 1.00 of 1
+
+1. The correct sequence of levels as per 3-schema architecture is:
+    External schema, conceptual schema, internal / physical schema, database
+    Feedback:
+
+2. Which of the following a DBMS would not do?
+
+    Install the database
+    
+3. Relational database will store data in the form of
+    	
+
+    tree
+    	
+
+    files
+    Correct	
+
+    tables
+    Feedback:
+
+    Relational database stores data in the form of 2D tables called as relations
+    	
+
+    network
+Score 1.00 of 1
+
+4. Which statement(s) is/are true?
+i. A table should have only one primary key
+ii. Primary keys can be composite
+iii. A table should have only one candidate key
+
+
+    	
+
+    All are true
+    	
+
+    Only i
+    Correct	
+
+    Only i & ii
+    Feedback:
+
+    A table can have only one primary key; however it can be composite. A table can have many candidate keys from which one is chosen as a primary key.
+    	
+
+    Only iii
+Score 0.00 of 1
+
+5. Oracle is ______ type of database.
+    Wrong	
+
+    RDBMS
+    Feedback:
+
+    Oracle supports both Object-oriented database and RDBMS features.
+    	
+
+    Network
+    Should have chosen	
+
+    OORDBMS
+    	
+
+    Hierarchical
+Score 1.00 of 1
+
+6. Which of the properties should a primary key comply
+    	
+
+    Unique
+    	
+
+    Not null
+    	
+
+    only unique
+    Correct	
+
+    both unique and not null
+    Feedback:
+
+    Primary key of a table should contain distinct non null values
+Score 1.00 of 1
+
+7. A Foreign key refers to
+    	
+
+    any column of any table
+    	
+
+    unique column of any table
+    	
+
+    primary key of any table
+    Correct	
+
+    Either unique column or primary key of any table
+    Feedback:
+
+    Foreign keys are used for look ups and hence it should refer to a comlumn without duplicates from any table
+Score 1.00 of 1
+
+8. The candidate key not chosen as a primary key is called as
+    	
+
+    Non key
+    	
+
+    Foreign key
+    Correct	
+
+    Alternate Key
+    Feedback:
+
+    One among the candidiate key is chosen to be a primary key. The other candidiate keys satifsying unique property are called as alternate keys
+    	
+
+    Duplicate key
