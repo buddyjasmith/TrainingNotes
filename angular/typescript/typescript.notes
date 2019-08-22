@@ -18,3 +18,11 @@
     - Built In type: string, boolean, int, arrays
 
 *Example:*
+[javascript]
+var name:string="jasdhir";
+[End]
+
+        *let*
+            -local
+        *var*
+            #double array# global
